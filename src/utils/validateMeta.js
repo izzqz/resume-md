@@ -8,7 +8,7 @@ const
 const schema = Joi.object({
   fullName: Joi.string().required(),
   jobTitle: Joi.string().required(),
-  title: Joi.string().required(),
+  title: Joi.string(),
   description: Joi.string().max(260).required(),
   email: Joi.string().email(),
   phone: Joi.string(),
@@ -19,7 +19,7 @@ const schema = Joi.object({
 });
 
 /**
- * Validates meta tags from resume.md
+ * Validates meta tags from Resume.md
  * @param meta {mdMetaTags}
  */
 function validateMeta(meta) {
@@ -27,7 +27,7 @@ function validateMeta(meta) {
 
   if (result.error) {
     console.log(
-        'Whoops! Validation failed. Check out your resume.md file');
+        'Whoops! Validation failed. Check out your Resume.md file');
     console.error(chalk.red(`\n${result.error}\n`));
     // Exit with 0 because npm run build has big chonky error message
     process.exit(0);

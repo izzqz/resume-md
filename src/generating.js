@@ -24,7 +24,7 @@ function generateQuestions(templates) {
 }
 
 /**
- * This function generates HTML string from ejs template and parsed resume.md
+ * This function generates HTML string from ejs template and parsed Resume.md
  * @param template {template}
  * @param resume {parsedResumeMd}
  * @return {Promise<string>}

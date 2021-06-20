@@ -33,7 +33,7 @@ function getAllTemplates() {
 }
 
 /**
- * This function parses resume.md and returns HTML with meta tags
+ * This function parses Resume.md and returns HTML with meta tags
  * @typedef {{
  *   fullName: string,
  *   jobTitle: string,
@@ -50,12 +50,12 @@ function getAllTemplates() {
  * @return {parsedResumeMd}
  */
 async function getMdResume() {
-  if (!fs.existsSync('resume.md')) {
-    console.error(chalk.red('File resume.md does not exists'));
+  if (!fs.existsSync('Resume.md')) {
+    console.error(chalk.red('File Resume.md does not exists'));
     process.exit(1);
   }
 
-  const mdContent = fs.readFileSync('resume.md').toString();
+  const mdContent = fs.readFileSync('Resume.md').toString();
   const raw = await md.render(mdContent);
 
   validateMeta(md.meta);
