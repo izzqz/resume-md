@@ -1,5 +1,5 @@
 {
-  "name": "html-resume-generator",
+  "name": "resume-md",
   "version": "1.0.0",
   "description": "Static html resume generator. With SEO and print optimizations.",
   "scripts": {
