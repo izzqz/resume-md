@@ -1,0 +1,10 @@
+@media print {
+    @page {
+        size: letter;
+    }
+
+    .hide-on-print {
+        display: none;
+        cursor: pointer;
+    }
+}

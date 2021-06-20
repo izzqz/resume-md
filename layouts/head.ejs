@@ -1,0 +1,29 @@
+<head>
+    <meta charset="utf-8">
+    <title><%= title || fullName %></title>
+    <meta content="<%= title || fullName %>" name="title">
+    <meta content="<%= description %>" name="description">
+
+    <meta content="Business" name="Classification">
+    <meta content="<%= fullName %><%= email ? ', ' + email : '' %>" name="author"/>
+    <meta content="resume,cv" name="keywords"/>
+    <meta content="resume" name="category">
+    <% if (email) { %>
+    <meta content="<%= email %>" name="reply-to">
+    <meta content="<%= email %>" name="og:email"/>
+    <% } %>
+    <% if (photoUrl) { %>
+    <meta content="<%= photoUrl %>" property="twitter:image">
+    <meta content="<%= photoUrl %>" name="image" property="og:image">
+    <% } %>
+    <meta content="website" property="og:type">
+    <meta content="<%= resumeUrl %>" property="og:url">
+    <meta content="<%= title || fullName %>" property="og:title">
+    <meta content="<%= description %>" property="og:description">
+    <meta content="summary" property="twitter:card">
+    <meta content="<%= resumeUrl %>" property="twitter:url">
+    <meta content="<%= title || fullName %>" property="twitter:title">
+    <meta content="<%= description %>" property="twitter:description">
+
+    <link rel="stylesheet" href="main.css">
+</head>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head') -%>
+<body>
+<%- include('css') -%>
+<section itemscope itemtype="https://schema.org/Person">
+
+    <h1 itemprop="name" class="name"><%= fullName %></h1>
+    <a href="mailto:vyacheslav@zzq.one" itemprop="email"><%= email %></a>
+
+    <% Object.keys(links).forEach(linkName => { %>
+        <div>
+            <a href="<%= links[linkName] %>" itemprop="url"><%= linkName %></a>
+        </div>
+    <% }) %>
+
+    <p>
+        <span itemprop="jobTitle"><%= jobTitle %></span>
+        that enjoys <span itemprop="knowsAbout"><%= knowsAbout %></span>.
+    </p>
+
+    <%- mdContent %>
+
+    <a onClick="window.print()" class="hide-on-print">Print this</a>
+</section>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "html-resume-generator",
+  "version": "1.0.0",
+  "description": "Static html resume generator. With SEO and print optimizations.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JJJ-Agency/html-resume-generator.git"
+  },
+  "author": "Vyacheslav <vyacheslav@zzq.one>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JJJ-Agency/html-resume-generator/issues"
+  },
+  "homepage": "https://github.com/JJJ-Agency/html-resume-generator#readme",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "css": "^3.0.0",
+    "ejs": "^3.1.6",
+    "glob": "^7.1.7",
+    "joi": "^17.4.0",
+    "markdown-it": "^12.0.6",
+    "markdown-it-meta": "0.0.1",
+    "openurl": "^1.1.1",
+    "pretty": "^2.0.0",
+    "prompts": "^2.4.1"
+  }
+}
