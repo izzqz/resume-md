@@ -2,6 +2,7 @@ const
     ejs = require('ejs'),
     fs = require('fs'),
     prettify = require('pretty'),
+    puppeteer = require('puppeteer'),
     kleur = require('kleur');
 
 /**
@@ -29,13 +30,13 @@ function generateQuestions(templates) {
  * @param resume {parsedResumeMd}
  * @return {Promise<string>}
  */
-async function generateHtmlResume(template, resume) {
-  const rawEjs = fs.readFileSync(`${template.path}/index.ejs`).toString();
+async function generateHtmlContents(template, resume) {
+  const rawEjs = fs.readFileSync(`${template.path}/index.ejs`, 'utf-8');
 
   const css = require('css');
 
-  const rawCss = fs.readFileSync(`${template.path}/main.css`);
-  const parsedCss = css.parse(rawCss.toString());
+  const rawCss = fs.readFileSync(`${template.path}/main.css`, 'utf-8');
+  const parsedCss = css.parse(rawCss);
   const _cssString = css.stringify(parsedCss);
 
   const data = {
@@ -52,7 +53,24 @@ async function generateHtmlResume(template, resume) {
   return prettify(html, { ocd: true });
 }
 
+async function generatePdfContents(htmlContent) {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.setContent(htmlContent);
+  await page.emulateMediaType('screen')
+
+  const pdfContents = await page.pdf({
+    printBackground: true,
+    preferCSSPageSize: true
+  });
+
+  await browser.close();
+
+  return pdfContents;
+}
+
 module.exports = {
   generateQuestions,
-  generateHtmlResume,
+  generateHtmlContents,
+  generatePdfContents,
 };
