@@ -1,5 +1,5 @@
 ---
-fullName: Jon Doe
+fullName: Jonathan Doe
 jobTitle: Some Developer
 title: Jon's Resume
 description: Some Developer | NodeJS and web things
