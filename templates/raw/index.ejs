@@ -7,6 +7,9 @@
 
     <h1 itemprop="name" class="name"><%= fullName %></h1>
     <a href="mailto:<%= email %>" itemprop="email"><%= email %></a>
+    &nbsp
+    <a href="tel:<%= phone %>" itemprop="email"><%= phone %></a>
+    <br>
 
     <% Object.keys(links).forEach(linkName => { %>
         <div>
@@ -21,7 +24,7 @@
 
     <%- mdContent %>
 
-    <button onClick="window.print()" class="hide-on-print">Print this</button>
+    <button onClick="window.print()" class="hide-on-print" style="cursor: pointer">Print this</button>
 </section>
 </body>
 </html>
