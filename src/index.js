@@ -1,6 +1,6 @@
 const
     prompts = require('prompts'),
-    chalk = require('chalk'),
+    kleur = require('kleur'),
     { open: openUrl } = require('openurl'),
     fs = require('fs'),
     path = require('path');
@@ -32,7 +32,7 @@ const { generateQuestions, generateHtmlResume } = require('./generating.js');
 
   fs.writeFileSync('dist/resume.html', await htmlResume);
   const resumePath = path.resolve('dist/resume.html');
-  console.log(`${chalk.green('All done! 🎉')}`);
+  console.log(`${kleur.green('All done! 🎉')}`);
   console.log('Your resume path:');
   console.log(`\n\n  ${resumePath}\n\n`);
   if (needOpenUrl) openUrl(`file:///${resumePath}`);

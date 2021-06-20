@@ -1,6 +1,6 @@
 const
     Joi = require('joi'),
-    chalk = require('chalk');
+    kleur = require('kleur');
 
 /**
  * @type {Joi.ObjectSchema<mdMetaTags>}
@@ -28,7 +28,7 @@ function validateMeta(meta) {
   if (result.error) {
     console.log(
         'Whoops! Validation failed. Check out your Resume.md file');
-    console.error(chalk.red(`\n${result.error}\n`));
+    console.error(kleur.red(`\n${result.error}\n`));
     // Exit with 0 because npm run build has big chonky error message
     process.exit(0);
   }

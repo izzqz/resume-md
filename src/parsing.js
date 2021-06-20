@@ -1,6 +1,6 @@
 const
     fs = require('fs'),
-    chalk = require('chalk'),
+    kleur = require('kleur'),
     md = require('markdown-it')(),
     metaPlugin = require('markdown-it-meta');
 
@@ -51,7 +51,7 @@ function getAllTemplates() {
  */
 async function getMdResume() {
   if (!fs.existsSync('Resume.md')) {
-    console.error(chalk.red('File Resume.md does not exists'));
+    console.error(kleur.red('File Resume.md does not exists'));
     process.exit(1);
   }
 

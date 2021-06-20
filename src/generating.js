@@ -2,7 +2,7 @@ const
     ejs = require('ejs'),
     fs = require('fs'),
     prettify = require('pretty'),
-    chalk = require('chalk');
+    kleur = require('kleur');
 
 /**
  * This function generates question object specially for `prompts` package
@@ -16,7 +16,7 @@ function generateQuestions(templates) {
     message: 'Select template',
     choices: templates.map(t => {
       return {
-        title: `${t.name}${chalk.grey('  ' + t.description)}`,
+        title: `${t.name}${kleur.grey('  ' + t.description)}`,
         value: t,
       };
     }),
