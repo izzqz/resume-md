@@ -2,7 +2,7 @@
 
 # SEO Optimized Resume Generator
 
-Features:
+### Features:
 - Its markdown
 - SEO Optimized
   - Preview on social media
