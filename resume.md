@@ -4,6 +4,7 @@ jobTitle: Some Developer
 title: Jon's Resume
 description: Some Developer | NodeJS and web things
 email: email@example.com
+phone: +0123456789
 resumeUrl: https://example.com/resume/
 photoUrl: https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=400
 links:

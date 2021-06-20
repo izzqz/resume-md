@@ -40,6 +40,7 @@ function getAllTemplates() {
  *   title: string,
  *   description: string,
  *   email: string,
+ *   phone: string,
  *   resumeUrl: string,
  *   photoUrl: string,
  *   links: object,

@@ -16,10 +16,12 @@ const { generateQuestions, generateHtmlResume } = require('./generating.js');
 
   const htmlResume = generateHtmlResume(template, await mdResume);
 
+  if (!fs.existsSync('dist')) fs.mkdirSync('dist')
+
   fs.writeFileSync('dist/resume.html', await htmlResume);
   const resumePath = path.resolve('dist/resume.html');
   console.log(`${chalk.green('All done! 🎉')}`);
   console.log('Your resume path:');
   console.log(`\n\n  ${resumePath}\n\n`);
-  openUrl(`file:///${resumePath}`)
+  openUrl(`file:///${resumePath}`);
 })();

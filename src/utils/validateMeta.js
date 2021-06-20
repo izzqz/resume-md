@@ -11,6 +11,7 @@ const schema = Joi.object({
   title: Joi.string().required(),
   description: Joi.string().max(260).required(),
   email: Joi.string().email(),
+  phone: Joi.string(),
   resumeUrl: Joi.string().uri(),
   photoUrl: Joi.string().uri(),
   links: Joi.object(),

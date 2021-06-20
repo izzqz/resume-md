@@ -4,7 +4,8 @@
   "description": "Static html resume generator. With SEO and print optimizations.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node src/index.js"
+    "build": "node src/index.js",
+    "create-template": "echo \"TODO\" && exit 1"
   },
   "repository": {
     "type": "git",
