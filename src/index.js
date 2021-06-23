@@ -8,9 +8,10 @@ const
 const {getAllTemplates, getMdResume} = require('./parsing.js');
 const {
     generateQuestions,
-    generateHtmlContents,
-    generatePdfContents
+    generateHtmlContents
 } = require('./generating.js');
+
+const HTML_RESUME_PATH = 'dist/resume.html';
 
 (async () => {
     const mdResume = await getMdResume();
@@ -30,17 +31,12 @@ const {
         selectedTemplate = allTemplates[alreadySelectedIndex];
     }
 
-    // FIXME: shitty pdf font and css usages
-    const html = await generateHtmlContents(selectedTemplate, mdResume);
+    await generateHtmlContents(selectedTemplate, mdResume)
+        .then(html => fs.outputFile('dist/resume.html', html));
 
-    await Promise.all([
-        generatePdfContents(html).then(pdf => fs.outputFile('dist/resume.pdf', pdf)),
-        fs.outputFile('dist/resume.html', html)
-    ]);
-
-    const resumePath = path.resolve('dist/resume.html');
+    const absoluteHtmlPath = path.resolve(HTML_RESUME_PATH);
     console.log(`${kleur.green('All done! 🎉')}`);
     console.log('Your resume path:');
-    console.log(`\n\n  ${resumePath}\n\n`);
-    if (needOpenUrl) openUrl(`file:///${resumePath}`);
+    console.log(`\n\n  ${absoluteHtmlPath}\n\n`);
+    if (needOpenUrl) openUrl(`file:///${absoluteHtmlPath}`);
 })();
