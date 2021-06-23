@@ -17,7 +17,7 @@ const
 
 
 (async () => {
-    const banner = await fs.readFile(BANNER_PATH, 'utf-8')
+    const banner = await fs.readFile(BANNER_PATH, 'utf-8');
 
     console.log(kleur.cyan(banner));
 
@@ -34,7 +34,14 @@ const
 
     if (alreadySelectedIndex === undefined) {
         const questions = generateQuestions(allTemplates);
-        selectedTemplate = await prompts(questions).then(a => a.template); // FIXME: Terminate exception
+        selectedTemplate = await prompts(questions).then(answer => {
+            if (answer.template !== undefined) {
+                return answer.template;
+            } else {
+                console.log(kleur.red('Canceled by user.'));
+                process.exit(1);
+            }
+        }); // FIXME: Terminate exception
     } else {
         selectedTemplate = allTemplates[alreadySelectedIndex];
     }
