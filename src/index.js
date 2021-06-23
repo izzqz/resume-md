@@ -41,7 +41,7 @@ const
                 console.log(kleur.red('Canceled by user.'));
                 process.exit(1);
             }
-        }); // FIXME: Terminate exception
+        });
     } else {
         selectedTemplate = allTemplates[alreadySelectedIndex];
     }
