@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node src/index.js",
-    "create-template": "node scripts/createTemplate.js"
+    "create-template": "node scripts/createTemplate.js",
+    "postinstall": "node scripts/getChecksum.js"
   },
   "repository": {
     "type": "git",

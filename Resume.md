@@ -13,5 +13,22 @@ links:
 knowsAbout: ALGOL, Fortran, ReactJS and web things
 ---
 
-## Hello World!
-This is my super cool resume
+This is your resume file. You can use any structure you want, and don't forget the meta tags above.
+
+## Summary
+
+Principal Engineer for npm at GitHub
+
+## Education
+
+-
+-
+-
+
+## Experience
+
+-
+-
+-
+
+## Skills
