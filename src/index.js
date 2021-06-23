@@ -11,9 +11,17 @@ const {
     generateHtmlContents
 } = require('./generating.js');
 
-const HTML_RESUME_PATH = 'dist/resume.html';
+const
+    HTML_RESUME_PATH = 'dist/resume.html',
+    BANNER_PATH = 'assets/ascii-banner.txt';
+
 
 (async () => {
+    const banner = await fs.readFile(BANNER_PATH, 'utf-8')
+
+    console.log(kleur.cyan(banner));
+
+
     const mdResume = await getMdResume();
     const allTemplates = getAllTemplates();
 
@@ -26,7 +34,7 @@ const HTML_RESUME_PATH = 'dist/resume.html';
 
     if (alreadySelectedIndex === undefined) {
         const questions = generateQuestions(allTemplates);
-        selectedTemplate = await prompts(questions).then(a => a.template);
+        selectedTemplate = await prompts(questions).then(a => a.template); // FIXME: Terminate exception
     } else {
         selectedTemplate = allTemplates[alreadySelectedIndex];
     }
