@@ -1,21 +1,19 @@
 const
     prompts = require('prompts'),
     kleur = require('kleur'),
-    {open: openUrl} = require('openurl'),
+    { open: openUrl } = require('openurl'),
     console = require('consola'),
     fs = require('fs-extra'),
     path = require('path');
 
-const {hasBeenModified} = require('./utils/hasBeenModified.js');
-const {getAllTemplates, getMdResume} = require('./parsing.js');
+const { hasBeenModified } = require('./utils/hasBeenModified.js');
+const { getAllTemplates, getMdResume } = require('./parsing.js');
 const {
     generateQuestions,
     generateHtmlContents
 } = require('./generating.js');
 
-const
-    HTML_RESUME_PATH = 'dist/resume.html',
-    BANNER_PATH = 'assets/ascii-banner.txt';
+const { HTML_RESUME_PATH, BANNER_PATH } = require('./constants.js');
 
 (async () => {
     const banner = await fs.readFile(BANNER_PATH, 'utf-8');

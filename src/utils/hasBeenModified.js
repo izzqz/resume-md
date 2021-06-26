@@ -7,7 +7,7 @@ const
  * @return {boolean}
  */
 function hasBeenModified() {
-    const file = fs.readFileSync('Resume.md')
+    const file = fs.readFileSync('Resume.md');
     const savedHash = fs.readFileSync('other/Resume.md.sha1sum');
     const currentHash = Buffer.from(
         crypto.createHash('sha1')
