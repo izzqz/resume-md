@@ -55,3 +55,17 @@ const
 
     if (needOpenUrl) openUrl(`file:///${absoluteHtmlPath}`);
 })();
+
+process.on('uncaughtException', err => {
+    switch (err.message) {
+        /**
+         * This error happens in "openurl" packed.
+         */
+        case 'spawn xdg-open ENOENT':
+            console.warn('We couldn\'t find a browser to open the resume, you\'ll have to do it by yourself.');
+            break;
+        default:
+            console.error('There was an uncaught error', err);
+            process.exit(1);
+    }
+});
