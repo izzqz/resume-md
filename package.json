@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JJJ-Agency/html-resume-generator#readme",
   "dependencies": {
+    "consola": "^2.15.3",
     "css": "^3.0.0",
     "ejs": "^3.1.6",
     "fs-extra": "^10.0.0",

@@ -2,6 +2,7 @@ const
     prompts = require('prompts'),
     kleur = require('kleur'),
     {open: openUrl} = require('openurl'),
+    console = require('consola'),
     fs = require('fs-extra'),
     path = require('path');
 
@@ -15,12 +16,10 @@ const
     HTML_RESUME_PATH = 'dist/resume.html',
     BANNER_PATH = 'assets/ascii-banner.txt';
 
-
 (async () => {
     const banner = await fs.readFile(BANNER_PATH, 'utf-8');
 
-    console.log(kleur.cyan(banner));
-
+    console.stdout.write(kleur.cyan(banner + '\n'));
 
     const mdResume = await getMdResume();
     const allTemplates = getAllTemplates();
@@ -38,8 +37,8 @@ const
             if (answer.template !== undefined) {
                 return answer.template;
             } else {
-                console.log(kleur.red('Canceled by user.'));
-                process.exit(1);
+                console.info('Canceled by user.');
+                process.exit(0);
             }
         });
     } else {
@@ -50,8 +49,7 @@ const
         .then(html => fs.outputFile('dist/resume.html', html));
 
     const absoluteHtmlPath = path.resolve(HTML_RESUME_PATH);
-    console.log(`${kleur.green('All done! 🎉')}`);
-    console.log('Your resume path:');
-    console.log(`\n\n  ${absoluteHtmlPath}\n\n`);
+    console.success('All done! 🎉');
+    console.info(`Your resume path --> ${absoluteHtmlPath}`);
     if (needOpenUrl) openUrl(`file:///${absoluteHtmlPath}`);
 })();
