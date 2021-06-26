@@ -6,6 +6,7 @@ const
     fs = require('fs-extra'),
     path = require('path');
 
+const {hasBeenModified} = require('./utils/hasBeenModified.js');
 const {getAllTemplates, getMdResume} = require('./parsing.js');
 const {
     generateQuestions,
@@ -22,6 +23,13 @@ const
     console.stdout.write(kleur.cyan(banner + '\n'));
 
     const mdResume = await getMdResume();
+
+    if (!hasBeenModified()) {
+        console.warn(
+            'The Resume.md file has not been changed. You will get the HTML from the example file...'
+        );
+    }
+
     const allTemplates = getAllTemplates();
 
     const alreadySelectedIndex = process.env.TEMPLATE_INDEX;
@@ -37,7 +45,7 @@ const
             if (answer.template !== undefined) {
                 return answer.template;
             } else {
-                console.info('Canceled by user.');
+                console.info('Canceled by user');
                 process.exit(0);
             }
         });
@@ -50,7 +58,7 @@ const
 
     const absoluteHtmlPath = path.resolve(HTML_RESUME_PATH);
     console.success('All done! 🎉');
-    console.info(`Check out your resume in --> ${HTML_RESUME_PATH}`);
+    console.info(`Check out your resume in --> ${kleur.bgGreen().black(' ' + HTML_RESUME_PATH + ' ')}`);
     // TODO: Add PDF info
 
     if (needOpenUrl) openUrl(`file:///${absoluteHtmlPath}`);
@@ -59,7 +67,7 @@ const
 process.on('uncaughtException', err => {
     switch (err.message) {
         /**
-         * This error happens in "openurl" packed.
+         * This error happens in the "openurl" packed.
          */
         case 'spawn xdg-open ENOENT':
             console.warn('We couldn\'t find a browser to open the resume, you\'ll have to do it by yourself.');
