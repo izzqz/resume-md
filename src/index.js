@@ -50,6 +50,8 @@ const
 
     const absoluteHtmlPath = path.resolve(HTML_RESUME_PATH);
     console.success('All done! 🎉');
-    console.info(`Your resume path --> ${absoluteHtmlPath}`);
+    console.info(`Check out your resume in --> ${HTML_RESUME_PATH}`);
+    // TODO: Add PDF info
+
     if (needOpenUrl) openUrl(`file:///${absoluteHtmlPath}`);
 })();
