@@ -1,17 +1,18 @@
-const fs = require('fs');
-const crypto = require('crypto');
+const
+    fs = require('fs'),
+    crypto = require('crypto');
 
-fs.readFile('Resume.md', (err, data) => {
-    const checksum = generateChecksum(data);
+const stream = fs.createReadStream('Resume.md');
+const hash = crypto.createHash('sha1');
 
-    fs.writeFile('other/Resume.md.md5', checksum, err => {
-        if (err) throw err
-    });
+stream.on('error', err => {
+    throw err
 });
 
-function generateChecksum(str, algorithm, encoding) {
-    return crypto
-        .createHash(algorithm || 'md5')
-        .update(str, 'utf8')
-        .digest(encoding || 'hex');
-}
+stream.on('data', chunk => {
+    hash.update(chunk)
+});
+
+stream.on('end', () => {
+    fs.writeFileSync('other/Resume.md.sha1sum', hash.digest('binary'));
+});
