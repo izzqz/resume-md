@@ -13,7 +13,7 @@ const {
     generateHtmlContents
 } = require('./generating.js');
 
-const { HTML_RESUME_PATH, BANNER_PATH } = require('./constants.js');
+const { HTML_OUTPUT_PATH, BANNER_PATH } = require('./constants.js');
 
 (async () => {
     const banner = await fs.readFile(BANNER_PATH, 'utf-8');
@@ -54,9 +54,9 @@ const { HTML_RESUME_PATH, BANNER_PATH } = require('./constants.js');
     await generateHtmlContents(selectedTemplate, mdResume)
         .then(html => fs.outputFile('dist/resume.html', html));
 
-    const absoluteHtmlPath = path.resolve(HTML_RESUME_PATH);
+    const absoluteHtmlPath = path.resolve(HTML_OUTPUT_PATH);
     console.success('All done! 🎉');
-    console.info(`Check out your resume in --> ${kleur.bgGreen().black(' ' + HTML_RESUME_PATH + ' ')}`);
+    console.info(`Check out your resume in --> ${kleur.bgGreen().black(' ' + HTML_OUTPUT_PATH + ' ')}`);
     // TODO: Add PDF info
 
     if (needOpenUrl) openUrl(`file:///${absoluteHtmlPath}`);

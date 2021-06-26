@@ -1,7 +1,7 @@
 {
   "name": "resume-md",
   "version": "1.0.0",
-  "description": "Static html resume generator. With SEO and print optimizations.",
+  "description": "Static html resume builder. With SEO and print optimizations.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node src/index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JJJ-Agency/html-resume-generator.git"
+    "url": "git+https://github.com/vm-agency/resume-md.git"
   },
   "author": "Vyacheslav <vyacheslav@zzq.one>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JJJ-Agency/html-resume-generator/issues"
+    "url": "https://github.com/vm-agency/resume-md/issues"
   },
-  "homepage": "https://github.com/JJJ-Agency/html-resume-generator#readme",
+  "homepage": "https://github.com/vm-agency/resume-md#readme",
   "dependencies": {
     "consola": "^2.15.3",
     "css": "^3.0.0",
