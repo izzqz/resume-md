@@ -8,8 +8,8 @@ const
 const schema = Joi.object({
   fullName: Joi.string().required(),
   jobTitle: Joi.string().required(),
-  title: Joi.string(),
   description: Joi.string().max(260).required(),
+  title: Joi.string(),
   email: Joi.string().email(),
   phone: Joi.string(),
   resumeUrl: Joi.string().uri(),

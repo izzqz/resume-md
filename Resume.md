@@ -1,8 +1,8 @@
 ---
 fullName: Jonathan Doe
 jobTitle: Some Developer
-title: Jonathan's Resume
 description: Some Developer | ALGOL, Fortran, ReactJS and web things
+title: Jonathan's Resume
 email: email@example.com
 phone: +0123456789
 resumeUrl: https://example.com/resume/

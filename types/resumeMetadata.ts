@@ -25,7 +25,7 @@ export type mdMetaTags = {
      */
     description: string,
     /**
-     * Just email.
+     * Just your email.
      * This should de valid email, because it used in `mailto:`.
      */
     email?: string,
@@ -56,7 +56,7 @@ export type mdMetaTags = {
     },
     /**
      * You can use this key to specify the scope of a competence.
-     * We dont recommend make this key too long. Try use
+     * We don't recommend make this key too long. It is better to limit it to 2 to 7 words.
      * @example ALGOL, Fortran, ReactJS and web things
      * @see https://schema.org/knowsAbout
      */
