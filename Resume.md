@@ -9,7 +9,7 @@ resumeUrl: https://example.com/resume/
 photoUrl: https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=400
 links:
     'example.com': https://example.com
-    'JJJ-Agency/html-resume-generator': https://github.com/JJJ-Agency/html-resume-generator
+    'vm-agency/resume-md': https://github.com/vm-agency/resume-md
 knowsAbout: ALGOL, Fortran, ReactJS and web things
 ---
 

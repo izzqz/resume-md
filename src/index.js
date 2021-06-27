@@ -63,7 +63,7 @@ const { HTML_OUTPUT_PATH, BANNER_PATH } = require('./constants.js');
 })();
 
 process.on('uncaughtException', err => {
-    switch (err.message) {
+    switch (err.message) { // TODO: Joi Validation handle
         /**
          * This error happens in the "openurl" packed.
          */
