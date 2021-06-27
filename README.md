@@ -14,10 +14,7 @@
 - Print Optimized
 - Simple Templating
 
-
-<!--
-    TODO: Gif of usage
--->
+![cast](assets/cast.svg)
 
 ### Requirements
 
